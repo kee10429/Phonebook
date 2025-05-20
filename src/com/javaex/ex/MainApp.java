@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ex01 {
+public class MainApp {
 
 	public static void main(String[] args) throws IOException{
 		
@@ -16,6 +16,8 @@ public class Ex01 {
 		//스트림 준비
 		Reader fr = new FileReader("C:\\javaStudy\\미니프로젝트\\PhoneDB_원본.txt");
 		BufferedReader br = new BufferedReader(fr);
+		
+		
 		
 		//반복
 		while(true) {
@@ -69,17 +71,31 @@ public class Ex01 {
 				}
 				
 			} else if(number.equals("2")) {
-				System.out.println("2.등록>");
-				System.out.print(">이름");
+				System.out.println("<2.등록>");
+				System.out.print(">이름:");
 				String name = sc.nextLine();
 				System.out.print(">휴대전화:");
 				String hp = sc.nextLine();
 				System.out.print(">회사번호:");
 				String company = sc.nextLine();
 				
-				Person newPerson = 
+				Person newPerson = new Person(name, hp, company);
+				pList.add(newPerson);
+				
+				System.out.println("[등록되었습니다]");
+				
 				
 			} else if (number.equals("3")) {
+				System.out.println("<3.삭제>");
+				System.out.print(">번호:");
+				String dn = sc.nextLine();  
+				
+				int delNumber = Integer.parseInt(dn)-1;
+				
+				if(delNumber>=0) {
+					pList.remove(delNumber);
+					System.out.println("[삭제되었습니다]");
+				}
 				
 				
 			} else if (number.equals("4")) {
@@ -92,6 +108,8 @@ public class Ex01 {
 				System.out.println("**********************************************");
 				
 				break;
+			} else {
+				System.out.println("[다시 입력해 주세요]");
 			}
 			
 			
@@ -115,6 +133,7 @@ public class Ex01 {
 		
 		//닫기
 		br.close();
+		sc.close();
 		
 		
 	}
