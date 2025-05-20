@@ -37,9 +37,6 @@ public class MainApp {
 			pList.add(p);
 		}
 		
-		//전체값 출력
-		//System.out.println(pList.toString());
-		
 		//-----------------------------------------------------------------
 		System.out.println("**************************************************");
 		System.out.println("*               전화번호 관리 프로그램                 *");
@@ -99,6 +96,19 @@ public class MainApp {
 				
 				
 			} else if (number.equals("4")) {
+				System.out.println("<4.검색>");
+				System.out.print(">이름:");
+				String sn = sc.nextLine();
+				
+				for(int i=0; i<pList.size(); i++) {
+					Person p = pList.get(i);
+					
+					if(p.getName().contains(sn)) {
+						System.out.println((i+1) + ".   "+ p.getName() + "  " + p.getHp() + "   " + p.getCompany());
+					}
+				}
+				
+				
 				
 				
 			} else if (number.equals("5")) {
@@ -115,21 +125,7 @@ public class MainApp {
 			
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		//닫기
 		br.close();
